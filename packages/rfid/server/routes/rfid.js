@@ -3,7 +3,7 @@
 // The Package is past automatically as first parameter
 module.exports = function(Rfid, app, auth, database) {
 
-  app.post('/rfid/swipe', function(req, res, next) {
+ app.post('/rfid/swipe', function(req, res, next) {
     // var rfid = req.params('rfid')
     // var unitid = req.params('unitid')
     // TODO: kolla om RFID finns i cards
@@ -16,14 +16,14 @@ module.exports = function(Rfid, app, auth, database) {
 //        })
 //    });
     
-    res.json({ "status": "OK",
-               "fullname": "Kurt Ohlsson"
-             });
-  });
+   res.json({ "status": "OK",
+              "fullname": "Kurt Ohlsson"
+            });
+ });
 
-  app.get('/rfid/example/anyone', function(req, res, next) {
-    res.send('Anyone can access this');
-  });
+  // app.get('/rfid/example/anyone', function(req, res, next) {
+  //   res.send('Anyone can access this');
+  // });
 
   app.get('/rfid/example/auth', auth.requiresLogin, function(req, res, next) {
     res.send('Only authenticated users can access this');
