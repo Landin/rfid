@@ -2,9 +2,16 @@
 
 angular.module('mean.rfid').config(['$stateProvider',
   function($stateProvider) {
-    $stateProvider.state('rfid example page', {
-      url: '/rfid/example',
-      templateUrl: 'rfid/views/index.html'
-    });
+    $stateProvider
+      .state('rfid example page', {
+        url: '/rfid/cards',
+        controller: 'cardCtrl',
+        templateUrl: 'rfid/views/cards.html'
+      })
+      .state('swipe page', {
+        url: '/rfid/swipe',
+        controller: 'swipeCtrl',
+        templateUrl: 'rfid/views/callswipe.html'
+      });
   }
 ]);
