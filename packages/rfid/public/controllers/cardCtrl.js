@@ -8,21 +8,25 @@ angular.module('mean.rfid').controller('cardCtrl', function($scope, $location, C
     };
 
     $scope.clearNew = function() {
-        var newcard = $scope.newcard;
-        newcard.rfid  = "";
-        newcard.fnamn = "";
-        newcard.enamn = "";
-        newcard.email = "";
+        $scope.newcard = {};
     };
-
-    $scope.addPost = function() {
-        var newcard = { "rfid":  $scope.newcard.rfid,
-                        "fnamn": $scope.newcard.fnamn,
-                        "enamn": $scope.newcard.enamn,
-                        "email": $scope.newcard.email
-                      };
-        $scope.cards.push(newcard);
-        $scope.clearNew();
+    
+    $scope.add = function() {       
+        //if (isValid) {
+        var card = new Cards({
+          rfid:  $scope.newcard.rfid,
+          fnamn: $scope.newcard.fnamn,
+          enamn: $scope.newcard.enamn,
+          email: $scope.newcard.email
+        });
+        
+        card.$save(function(response) {
+            $scope.cards.push(card);
+            $scope.clearNew();
+        });
+//      } else {
+//        $scope.submitted = true;
+//      }
     };
 
     $scope.remove = function(card) {

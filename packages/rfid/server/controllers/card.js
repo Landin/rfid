@@ -19,22 +19,22 @@ exports.card = function(req, res, next, id) {
 };
 
     // Create an article
-/*
-exports.create = function(req, res) {
-  var article = new Article(req.body);
-  article.user = req.user;
 
-  article.save(function(err) {
+exports.create = function(req, res) {
+  var card = new Card(req.body);
+  card.user = req.user;
+
+  card.save(function(err) {
     if (err) {
       return res.json(500, {
-        error: 'Cannot save the article'
+        error: 'Cannot save the card'
       });
     }
-    res.json(article);
+    res.json(card);
 
   });
 };
-**/
+
 
     // Update an article
 /*

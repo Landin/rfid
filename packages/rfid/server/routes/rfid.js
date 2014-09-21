@@ -17,13 +17,12 @@ var hasAuthorization = function(req, res, next) {
 };  
 
 app.route('/rfid/cards')
-        .get(cards.all);
-        //.post(auth.requiresLogin, cards.create);
+        .get(cards.all)
+        .post(auth.requiresLogin, cards.create);
 app.route('/rfid/cards/:cardId')
 //    .get(card.show)
 //    .put(auth.requiresLogin, hasAuthorization, cards.update)
       .delete(auth.requiresLogin, hasAuthorization, cards.destroy);
-//      .delete(cards.destroy);
     
 // Finish with setting up the cardId param
 app.param('cardId', cards.card);

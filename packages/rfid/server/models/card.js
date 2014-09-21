@@ -1,15 +1,10 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
+/** Module dependencies **/
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-
-/**
- * Article Schema
- */
+/** Article Schema */
 var CardSchema = new Schema({
   created: {
     type: Date,
@@ -41,20 +36,17 @@ var CardSchema = new Schema({
   }
 });
 
+// Validations
 /*
-    // Validations
- 
 CardSchema.path('title').validate(function(title) {
   return !!title;
-}, 'Title cannot be blank');
+}, 'RFID cannot be blank');
 
-CardSchema.path('content').validate(function(content) {
+CardSchema.path('fnamn').validate(function(content) {
   return !!content;
-}, 'Content cannot be blank');
+}, 'fnamn cannot be blank');
 
-/**
- * Statics
- */
+/** Statics **/
 CardSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
