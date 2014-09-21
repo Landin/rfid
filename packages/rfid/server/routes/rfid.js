@@ -31,19 +31,6 @@ app.param('cardId', cards.card);
  app.post('/rfid/swipe', function(req, res, next) {
      var status, number, name, card;
      
-     var cards = [
-        {
-        "rfid": "1001",
-        "fnamn": "Skurt",
-        "enamn": "Skutt",
-        "email": "skurt@test.com"
-        }, {
-        "rfid": "1002",
-        "fnamn": "Kurt",
-        "enamn": "Ohlsson",
-        "email": "kurt@test.lab"
-        }
-      ];
 
     // var rfid = req.params('rfid')
     // var unitid = req.params('unitid')

@@ -23,6 +23,13 @@ Rfid.register(function(app, auth, database) {
     roles: ['authenticated'],
     menu: 'main'
   });
+  
+  Rfid.menus.add({
+    title: 'Registrering av Card',
+    link: 'Registrering av card',
+    roles: ['authenticated'],
+    menu: 'main'
+  });
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above
