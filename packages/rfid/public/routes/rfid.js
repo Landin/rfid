@@ -12,6 +12,12 @@ angular.module('mean.rfid').config(['$stateProvider',
         url: '/rfid/swipe',
         controller: 'swipeCtrl',
         templateUrl: 'rfid/views/callswipe.html'
+      })
+      .state('listswipe page', {
+        url: '/rfid/listswipe',
+        controller: 'listCtrl',
+        templateUrl: 'rfid/views/listswipe.html'
       });
+      
   }
 ]);

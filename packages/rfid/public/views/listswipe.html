@@ -1,0 +1,25 @@
+<div ng-controller="listCtrl" data-ng-init="find()">
+    
+<div class="panel panel-primary">
+    <div class="panel-heading">Kort</div>
+    <div class="panel-body">
+    
+    <table class="table table-striped">
+        <tr>
+            <th>RFID</th>
+            <th>Fnamn</th>
+            <th>Enamn</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="card in cards">
+            <td>{{card.rfid}}</td>
+            <td>{{card.fnamn}}</td>
+            <td>{{card.enamn}}</td>
+            <td>{{card.email}}</td>
+            <td><button class="btn btn-xm btn-danger" ng-click="remove(card)">Radera</button></td> 
+        </tr>        
+</table>
+</div>
+</div>
+</div>
