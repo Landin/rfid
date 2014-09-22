@@ -17,19 +17,27 @@ Rfid.register(function(app, auth, database) {
   Rfid.routes(app, auth, database);
 
   //We are adding a link to the main menu for all authenticated users
-  Rfid.menus.add({
-    title: 'rfid example page',
-    link: 'rfid example page',
-    roles: ['authenticated'],
-    menu: 'main'
+  Rfid.menus
+//      .add({
+//        title: 'Swipe Card',
+//        link: 'swipe page',
+//        roles: ['authenticated'],
+//        menu: 'main'
+//      })
+      .add({
+        title: 'Kort',
+        link: 'Kort', // link skickar till Routes $stateProvider.state
+        roles: ['admin'],
+        menu: 'main'
+      })
+      .add({
+        title: 'Kort Logg',
+        link: 'Kort Logg',
+        roles: ['admin'],
+        menu: 'main'
   });
-  
-  Rfid.menus.add({
-    title: 'Registrering av Card',
-    link: 'Registrering av card',
-    roles: ['authenticated'],
-    menu: 'main'
-  });
+    
+
 
   /**
     //Uncomment to use. Requires meanio@0.3.7 or above

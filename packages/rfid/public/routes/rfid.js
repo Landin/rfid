@@ -3,7 +3,7 @@
 angular.module('mean.rfid').config(['$stateProvider',
   function($stateProvider) {
     $stateProvider
-      .state('rfid example page', {
+      .state('Kort', {
         url: '/rfid/cards',
         controller: 'cardCtrl',
         templateUrl: 'rfid/views/cards.html'
@@ -13,7 +13,7 @@ angular.module('mean.rfid').config(['$stateProvider',
         controller: 'swipeCtrl',
         templateUrl: 'rfid/views/callswipe.html'
       })
-      .state('listswipe page', {
+      .state('Kort Logg', {
         url: '/rfid/listswipe',
         controller: 'listCtrl',
         templateUrl: 'rfid/views/listswipe.html'

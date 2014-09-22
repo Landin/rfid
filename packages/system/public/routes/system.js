@@ -10,8 +10,10 @@ angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'system/views/index.html'
-      });
+//        templateUrl: 'system/views/index.html'
+        controller: 'swipeCtrl',
+        templateUrl: 'rfid/views/callswipe.html'
+    });
   }
 ]).config(['$locationProvider',
   function($locationProvider) {
