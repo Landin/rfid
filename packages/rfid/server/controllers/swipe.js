@@ -1,4 +1,5 @@
 'use strict';
+var loggswipe = require('../controllers/loggswipe');
 
     // Module dependencies.
 var mongoose = require('mongoose'),
@@ -16,12 +17,13 @@ exports.process = function(req, res, next) {
         number = req.param("number");
     
     if (number) {
-          Card.findOne({ 'rfid': number }, 'fnamn enamn', function (err, card) {
+          Card.findOne({ 'rfid': number }, 'rfid fnamn enamn', function (err, card) {
             if (err) return next(new Error('Database Error ' + number));
 
             if (card) {
                    status = 'OK';
-                   name = card.fnamn + ' ' + card.enamn;           
+                   name = card.fnamn + ' ' + card.enamn;
+                   loggswipe.create(card);
             } else {
                 name = 'Could not find any card with that RFID';
             }

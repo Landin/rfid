@@ -2,6 +2,8 @@
 
 var cards = require('../controllers/card');
 var swipe = require('../controllers/swipe');
+var loggswipe = require('../controllers/loggswipe');
+
 
 // The Package is past automatically as first parameter
 module.exports = function(Rfid, app, auth, database, Cards) {
@@ -26,7 +28,9 @@ app.route('/rfid/cards/:cardId')
 app.param('cardId', cards.card);
 
     
- app.post('/rfid/swipe', swipe.process);
+app.post('/rfid/swipe', swipe.process);
+
+app.get('/rfid/loggswipes', loggswipe.all);
 
     app.get('/rfid/example/auth', auth.requiresLogin, function(req, res, next) {
     res.send('Only authenticated users can access this');

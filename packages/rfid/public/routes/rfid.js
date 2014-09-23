@@ -14,9 +14,9 @@ angular.module('mean.rfid').config(['$stateProvider',
         templateUrl: 'rfid/views/callswipe.html'
       })
       .state('Kort Logg', {
-        url: '/rfid/listswipe',
-        controller: 'listCtrl',
-        templateUrl: 'rfid/views/listswipe.html'
+        url: '/rfid/loggswipe',
+        controller: 'loggswipeCtrl',
+        templateUrl: 'rfid/views/loggswipe.html'
       });
       
   }

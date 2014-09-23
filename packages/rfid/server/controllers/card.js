@@ -18,7 +18,7 @@ exports.card = function(req, res, next, id) {
   });
 };
 
-    // Create an article
+    // Create an card
 
 exports.create = function(req, res) {
   var card = new Card(req.body);
@@ -34,7 +34,6 @@ exports.create = function(req, res) {
 
   });
 };
-
 
     // Update an article
 /*
