@@ -28,6 +28,28 @@ module.exports = function(app, passport, db) {
   // cache=memory or swig dies in NODE_ENV=production
   app.locals.cache = 'memory';
 
+
+
+// Anders prövar få till CORS
+var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8100');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+     // intercept OPTIONS method
+    if ('OPTIONS' === req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
+};
+// Enable Cors
+app.use(allowCrossDomain);
+
+
+
+
+
   // Should be placed before express.static
   // To ensure that all assets and data are compressed (utilize bandwidth)
   app.use(compression({

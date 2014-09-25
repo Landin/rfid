@@ -18,17 +18,26 @@ module.exports = function(grunt) {
     assets: grunt.file.readJSON('config/assets.json'),
     clean: ['bower_components/build'],
     watch: {
+      options: {
+  	livereload: {
+          port: 35728
+        }  
+      },
       js: {
         files: paths.js,
         tasks: ['jshint'],
         options: {
-          livereload: true
+          livereload: {
+            port: 35728
+          }
         }
       },
       html: {
         files: paths.html,
         options: {
-          livereload: true,
+          livereload: {
+            port: 35728
+          },
           interval: 500
         }
       },
@@ -36,7 +45,9 @@ module.exports = function(grunt) {
         files: paths.css,
         tasks: ['csslint'],
         options: {
-          livereload: true
+          livereload: {
+            port: 35728
+          }
         }
       }
     },

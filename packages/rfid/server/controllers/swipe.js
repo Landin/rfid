@@ -25,11 +25,12 @@ exports.process = function(req, res, next) {
                    name = card.fnamn + ' ' + card.enamn;
                    loggswipe.create(card);
             } else {
-                name = 'Could not find any card with that RFID';
+                name = 'Could not find any card matching RFID ' + number;
             }
             talktoangular(res, status, name);
           });
     } else {
+        console.log('fick inget nummer');
         talktoangular(res, status, name);
     }
     

@@ -23,29 +23,26 @@ app.route('/rfid/cards/:cardId')
 //    .get(card.show)
 //    .put(auth.requiresLogin, hasAuthorization, cards.update)
       .delete(auth.requiresLogin, hasAuthorization, cards.destroy);
-    
-// Finish with setting up the cardId param
+
 app.param('cardId', cards.card);
 
-    
 app.post('/rfid/swipe', swipe.process);
 
 app.get('/rfid/loggswipes', loggswipe.all);
 
-    app.get('/rfid/example/auth', auth.requiresLogin, function(req, res, next) {
-    res.send('Only authenticated users can access this');
-  });
+app.get('/rfid/example/auth', auth.requiresLogin, function(req, res, next) {
+  res.send('Only authenticated users can access this');
+});
 
-    app.get('/rfid/example/admin', auth.requiresAdmin, function(req, res, next) {
-    res.send('Only users with Admin role can access this');
-  });
+app.get('/rfid/example/admin', auth.requiresAdmin, function(req, res, next) {
+  res.send('Only users with Admin role can access this');
+});
 
-    app.get('/rfid/example/render', function(req, res, next) {
-        Rfid.render('index', {
-        package: 'rfid'
-        }, function(err, html) {
-      //Rendering a view from the Package server/views
-        res.send(html);
+app.get('/rfid/example/render', function(req, res, next) {
+    Rfid.render('index', {
+    package: 'rfid'
+    }, function(err, html) {
+      res.send(html);
     });
   });
 };
